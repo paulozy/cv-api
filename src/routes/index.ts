@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { addHeader } from '../controllers/Personal'
+import { addHeader } from '../controllers/Header'
 
 const router = Router()
 
