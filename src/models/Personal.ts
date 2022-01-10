@@ -1,6 +1,6 @@
 import { Schema, model, connection } from 'mongoose'
 
-type Personal = {
+type Header = {
     name: {
         firstName: string,
         lastName: string
@@ -13,24 +13,10 @@ type Personal = {
         phone: string,
         email: string
         linkedin: string
-    },
-    objetive: string,
-    qualifications: [string],
-    profissionalExperience: [{
-        company: string,
-        start: Date,
-        end: Date,
-        office: string,
-        responsibilities: [string]
-    }],
-    academicEducation: [{
-        course: string,
-        institution: string
-    }],
-    technologies: [string]
+    }
 }
 
-const schema = new Schema<Personal>({
+const schema = new Schema<Header>({
     name: {
         firstName: {
             type: String,
@@ -55,25 +41,11 @@ const schema = new Schema<Personal>({
             required: true
         },
         linkedin: String
-    },
-    objetive: String,
-    qualifications: [String],
-    profissionalExperience: [{
-        company: String,
-        start: Date,
-        end: Date,
-        office: String,
-        responsibilities: [String]
-    }],
-    academicEducation: [{
-        course: String,
-        institution: String
-    }],
-    technologies: [String]
+    }
 })
 
-const modelName = 'Personal'
+const modelName = 'Header'
 
 export default (connection && connection.models[modelName])
     ? connection.models[modelName]
-    : model<Personal>(modelName, schema)
+    : model<Header>(modelName, schema)
