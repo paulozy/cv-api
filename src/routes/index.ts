@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { addHeader } from '../controllers/Header'
+import { addHeader, updateHeader } from '../controllers/Header'
 
 const router = Router()
 
@@ -8,5 +8,6 @@ router.get('/code', (req, res) => {
 })
 
 router.post('/header', addHeader)
+router.put('/header/:_id', updateHeader)
 
 export { router }
